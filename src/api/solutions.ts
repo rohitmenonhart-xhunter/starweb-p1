@@ -4,8 +4,10 @@
 
 // Define possible API endpoints for AI solutions
 const API_ENDPOINTS = [
-  '/api/generate-solution'
-];
+  '/api/generate-solution',
+  // Add fallback to absolute URL for direct API calls from the browser
+  typeof window !== 'undefined' ? window.location.origin + '/api/generate-solution' : ''
+].filter(Boolean);
 
 /**
  * Tries to fetch from multiple endpoints until one succeeds
